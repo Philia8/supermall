@@ -8,25 +8,31 @@
 
 <script>
     export default {
-        name: 'NavBar'
+        name: 'NavBar',
     }
 </script>
 
 <style>
     .nav-bar {
         display: flex;
+        justify-content: space-between;
         height: 44px;
         line-height: 44px;
+        /* background-color: hotpink; */
+        box-shadow: 0 1px 1px rgba(100, 100, 100, .1);
+        color: #fff;
     }
     /* 左侧部分设置固定宽度 */
+    /* 使用并集选择器，以逗号分隔 */
     
-    .right .left {
+    .left,
+    .right {
+        height: 44px;
         width: 60px;
-        background-color: green;
     }
     
     .center {
         flex: 1;
-        background-color: hotpink;
+        text-align: center;
     }
 </style>
