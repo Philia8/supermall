@@ -10,12 +10,15 @@
             动态绑定子组件的属性，属性值为父组件中的data
         -->
        <home-swiper :banners="banners"></home-swiper>
+       <!-- 推荐列表 -->
+       <recommend-view :items="recommends"></recommend-view>
    </div>
 </template>
 
 <script>
     import NavBar from 'components/common/navbar/NavBar'
     import HomeSwiper from './childrenComps/HomeSwiper'
+    import RecommendView from './childrenComps/RecommendView'
     import {
         getHomeMultidata
     } from 'network/home'
@@ -24,12 +27,13 @@
         name: 'Home',
         components: {
             NavBar,
-            HomeSwiper
+            HomeSwiper,
+            RecommendView
         },
         data() {
             return {
-                banners: [],
-                recommends: [],
+                banners: [], // 轮播图数据
+                recommends: [], //推荐列表数据
                 touchSt: 0, //触摸起点
                 touchEnS: 0 //触摸终点
             }
