@@ -1,5 +1,5 @@
 <template>
-   <div id="Home">
+   <div id="home">
        <nav-bar class="home-nav">
            <div slot="center">购物街</div>
        </nav-bar>
@@ -12,6 +12,7 @@
        <home-swiper :banners="banners"></home-swiper>
        <!-- 推荐列表 -->
        <recommend-view :items="recommends"></recommend-view>
+       <feature-view></feature-view>
    </div>
 </template>
 
@@ -19,6 +20,7 @@
     import NavBar from 'components/common/navbar/NavBar'
     import HomeSwiper from './childrenComps/HomeSwiper'
     import RecommendView from './childrenComps/RecommendView'
+    import FeatureView from './childrenComps/FeatureView'
     import {
         getHomeMultidata
     } from 'network/home'
@@ -28,7 +30,8 @@
         components: {
             NavBar,
             HomeSwiper,
-            RecommendView
+            RecommendView,
+            FeatureView
         },
         data() {
             return {
@@ -58,10 +61,19 @@
 </script>
 
 <style scoped>
+    #home {
+        padding-top: 44px;
+    }
+    
     .home-nav {
         /* 使用base.css 中定义的变量 */
         background-color: var(--color-tint);
         color: #fff;
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 0;
+        z-index: 9;
     }
 </style>
 <!-- 覆盖原组件上的样式 -->
