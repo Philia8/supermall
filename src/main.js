@@ -6,7 +6,9 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.use(ElementUI)
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
+// 创建全局事件总线，值为一个vue 实例，可以调用vue 的实例方法
+Vue.prototype.$bus = new Vue();
 
 new Vue({
     render: h => h(App),

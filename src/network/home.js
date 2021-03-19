@@ -10,3 +10,13 @@ export function getHomeMultidata() {
         url: '/home/multidata'
     })
 }
+// 获取首页goods 数据
+export function getGoods(type, page) {
+    return request({
+        url: 'home/data',
+        params: {
+            type,
+            page
+        }
+    })
+}
