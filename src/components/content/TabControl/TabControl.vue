@@ -1,5 +1,5 @@
 <template>
-    <div class="tab-control">
+    <div class="tab-control" ref="aaa">
         <div class="tab-control-item" v-for="(item,index) in titles"
             @click="itemClick(index)">
             <span :class="{active:index === currentIndex}">{{item}}</span>
@@ -32,6 +32,9 @@
                 // 子组件向父组件传递数据
                 this.$emit('tabClick', index);
             }
+        },
+        mounted() {
+            // console.log(this.$refs.aaa.offsetTop);
         }
     }
 </script>

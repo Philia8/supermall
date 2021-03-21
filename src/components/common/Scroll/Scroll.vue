@@ -37,7 +37,7 @@
         mounted() {
             // 1、创建BScroll 对象
             this.scrollInit();
-            // 2、监听scroll 事件
+            // 2、监听scroll 页面滚动事件
             this.scroll.on("scroll", (position) => {
                 // 将子组件中的数据分发
                 this.$emit("scroll", position);
@@ -63,9 +63,11 @@
             refreshHeight() {
                 // 判断当前scroll 对象是否创建成功，再执行相关方法，否则会报错
                 this.scroll && this.scroll.scrollTo && this.scroll.refresh();
+
+                // console.log("---");
             },
             // 返回顶部
-            backTop(x, y, time = 500) {
+            scrollTo(x, y, time = 500) {
                 // scrollTo(x坐标,y坐标,动画执行的时长,运动函数,{修改CSS中transform 的某些属性});
                 this.scroll && this.scroll.scrollTo && this.scroll.scrollTo(x, y, time);
             },
@@ -73,7 +75,12 @@
             pullUpHandler() {
                 // console.log("上拉");
                 this.$emit("pullingUp");
-            }
+            },
+            // 获取当前纵轴滚动的距离
+            getScrollY() {
+                // console.log(this.scroll.y);
+                return this.scroll.y;
+            },
         }
     }
 </script>
