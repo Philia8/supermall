@@ -23,7 +23,9 @@
         },
         methods: {
             itemClick() {
-                console.log("点击进入商品详情->");
+                // console.log("点击进入商品详情->");
+                // 动态路由params 传递数据
+                this.$router.push('/detail/' + this.goodsItem.iid);
             },
             // 监听图片加载完成
             imageLoad() {
