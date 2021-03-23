@@ -1,17 +1,17 @@
 <template>
    <div id="HomeSwiper">
     <!-- 轮播图 -->
-    <div class="banner" @touchstart="touchstart" @touchmove="touchmove" @touchend="touchend">
-        <!-- 设置组件高度、前后翻页箭头是否显示nerver/hover/awlways -->
-        <el-carousel height="167px" arrow="never" ref="carousel"> 
-            <el-carousel-item v-for="(item,index) in banners" :key="index">
-                <!-- <a :href="item.link"> -->
-                <a href="javascript:;">
-                    <img :src="item.image" @load="imgLoad">
-                </a>
-            </el-carousel-item>
-        </el-carousel>
-    </div>
+        <div class="banner" @touchstart="touchstart" @touchmove="touchmove" @touchend="touchend">
+            <!-- 设置组件高度、前后翻页箭头是否显示nerver/hover/awlways -->
+            <el-carousel height="167px" arrow="never" ref="homeCarousel"> 
+                <el-carousel-item v-for="(item,index) in banners" :key="index">
+                    <!-- <a :href="item.link"> -->
+                    <a href="javascript:;">
+                        <img :src="item.image" @load="imgLoad">
+                    </a>
+                </el-carousel-item>
+            </el-carousel>
+        </div>
    </div>
 </template>
 
@@ -31,19 +31,19 @@
                 isLoad: false //轮播图片是否有一张已加载完成
             }
         },
+        components: {},
         methods: {
             touchstart(event) {
-                // console.log(event.touches[0].pageX);
-                // return event.touches[0].pageX;
                 this.touchSt = event.touches[0].pageX;
             },
             touchmove(event) {},
             touchend(event) {
                 this.touchEn = event.changedTouches[0].pageX;
-                this.touchSt > this.touchEn ? this.$refs.carousel.prev() : this.$refs.carousel.next();
+                this.touchSt > this.touchEn ? this.$refs.homeCarousel.prev() : this.$refs.homeCarousel.next();
             },
             // 轮播图图片加载事件监听
             imgLoad() {
+                // console.log("load=" + isLoad);
                 if (!this.isLoad) {
                     // 事件分发只进行一次，后续无需再次发送
                     this.$emit("swiperImgLoad");
