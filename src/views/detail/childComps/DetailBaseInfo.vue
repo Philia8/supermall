@@ -1,5 +1,5 @@
 <template>
-    <div class="detail-base-info" v-if="Object.keys(goods).length > 0">
+    <div class="detail-base-info" v-if="Object.keys(goods).length != 0">
         <div class="itemInfo">
             <div class="item-title">{{goods.title}}</div>
             <div class="price-container">
@@ -99,7 +99,7 @@
     .services {
         display: flex;
         justify-content: space-between;
-        font-size: 13px;
+        font-size: 10px;
         height: 45px;
         line-height: 45px;
     }
