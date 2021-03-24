@@ -3,7 +3,7 @@
     <!-- 轮播图 -->
         <div class="banner" @touchstart="touchstart" @touchmove="touchmove" @touchend="touchend">
             <!-- 设置组件高度、前后翻页箭头是否显示nerver/hover/awlways -->
-            <el-carousel height="167px" arrow="never" ref="homeCarousel"> 
+            <el-carousel height="167px" arrow="never" ref="homeCarousel" autoplay="autoplay"> 
                 <el-carousel-item v-for="(item,index) in banners" :key="index">
                     <!-- <a :href="item.link"> -->
                     <a href="javascript:;">
@@ -28,18 +28,24 @@
         },
         data() {
             return {
-                isLoad: false //轮播图片是否有一张已加载完成
+                isLoad: false, //轮播图片是否有一张已加载完成
+                autoplay: true, //是否自动轮播
             }
         },
         components: {},
         methods: {
             touchstart(event) {
                 this.touchSt = event.touches[0].pageX;
+                // 手动切换时，停止自动轮播
+                this.isAutoplay = false;
             },
             touchmove(event) {},
             touchend(event) {
                 this.touchEn = event.changedTouches[0].pageX;
                 this.touchSt > this.touchEn ? this.$refs.homeCarousel.prev() : this.$refs.homeCarousel.next();
+                setTimeout(() => {
+                    this.isAutoplay = true;
+                }, 2000);
             },
             // 轮播图图片加载事件监听
             imgLoad() {

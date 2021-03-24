@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+        <!-- 设置某个组件不用保存状态 exclude -->
         <keep-alive exclude="detail">
             <router-view></router-view>
         </keep-alive>
