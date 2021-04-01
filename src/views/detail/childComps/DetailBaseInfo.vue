@@ -1,5 +1,5 @@
 <template>
-    <div class="detail-base-info" v-if="Object.keys(goods).length != 0">
+    <div class="detail-base-info" v-if="Object.keys(goods).length !== 0">
         <div class="itemInfo">
             <div class="item-title">{{goods.title}}</div>
             <div class="price-container">
@@ -30,7 +30,7 @@
             goods: {
                 type: Object,
                 defaul() {
-                    return null;
+                    return {};
                 }
             }
         }
@@ -40,7 +40,7 @@
 <style scoped>
     .detail-base-info {
         border-bottom: 5px solid #f8f8f8;
-        padding: 5px;
+        padding: 10px;
         padding-top: 10px;
     }
     

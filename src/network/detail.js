@@ -10,7 +10,7 @@ export function getDetailData(iid) {
     })
 }
 
-// 将相关数据封装为Class
+// 将商品相关数据封装为Class
 export class Goods {
     constructor(itemInfo, columns, services) {
         this.title = itemInfo.title;
@@ -21,5 +21,16 @@ export class Goods {
         this.realPrice = itemInfo.lowNowPrice;
         this.columns = columns;
         this.services = services;
+    }
+}
+
+// 将店铺相关信息封装集成
+export class Shop {
+    constructor(shopInfo) {
+        this.name = shopInfo.name;
+        this.logo = shopInfo.shopLogo;
+        this.sells = shopInfo.cSells;
+        this.goodsCount = shopInfo.cGoods;
+        this.score = shopInfo.score;
     }
 }
